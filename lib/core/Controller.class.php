@@ -5,12 +5,12 @@ class Controller {
     protected $controller;
     protected $action;
 
-    function __construct($controller, $action) {
+    public function __construct($controller, $action) {
         $this->controller = $controller;
         $this->action = $action;
-        #var_dump($this);
+        $this->load = new Loader();
     }
 
-    function __destruct() {}
+    public function __destruct() {}
 
 }
