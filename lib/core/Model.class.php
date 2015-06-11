@@ -21,8 +21,8 @@ class Model {
                 $binds .= ', :'.$field;
             }
         }
-        $sql = Connection::get()->prepare('INSERT INTO '.$this->entity.' ('.$fields.') VALUES ('.$binds.')');
-        var_dump($sql);
+        $query = 'INSERT INTO '.$this->entity.' ('.$fields.') VALUES ('.$binds.')';
+        $sql = Connection::get()->prepare($query);
         foreach($properties as $field => $value) {
             $sql->bindValue(':'.$field , $value);
         }
@@ -32,14 +32,38 @@ class Model {
             //var_dump($result);
             return true;
         } else {
-            exit($sql->errorCode());
+            //exit($sql->errorCode());
+            return false;
         }
     }
 
-    public function find() {}
+    public function find($id=null) {
+        $query = 'SELECT * FROM '.$this->entity;
+        $query .= isset($id) ? ' WHERE id='.$id.' LIMIT 1' : '';
+        $sql = Connection::get()->prepare($query);
+        if ($sql->execute()){
+            if (isset($id)) {
+                return $sql->fetch(PDO::FETCH_OBJ);
+            } else {
+                return $sql->fetchAll(PDO::FETCH_OBJ);
+            }
+        } else {
+            return false;
+        }
+    }
 
-    public function update() {}
+    public function update() {
+    }
 
-    public function destroy(){}
+    public function destroy(){
+        $query = 'DELETE FROM '.$this->entity.' WHERE id='.$this->id;
+        //var_dump($query);
+        $sql = Connection::get()->prepare($query);
+        if ($sql->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

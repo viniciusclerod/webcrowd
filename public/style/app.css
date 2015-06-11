@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+}
+main > header {
+    background: lightsalmon;
+    padding: 1em;
+}
+main > nav {
+    background: salmon;
+    padding: 1em;
+}
+main > nav > ul {
+    list-style: none;
+}
+main > nav > ul > li {
+    display: inline-block;
+}
+main > nav > ul > li + li {
+    padding-left: 1em;
+}
+
+
+main > section > form {
+    background: lightgray;
+    margin: 1em;
+    padding: 1em;
+}
+main > section > form > p + p {
+    margin-top: 1em;
+}
+main > section > form > p > label {
+    display: block;
+}
+main > section > form > p > input, main > section > form > p > textarea {
+    padding: 0.5em;
+    border: solid 0.1em gray;
+    font-size: 12pt;
+    width: calc(100% - 1em);
+}
+main > section > form > p > input[type=submit] {
+    width: 100%;
+}
+main > section > form > p > textarea {
+    resize: vertical;
+    min-height: 10em;
+}
+
+main > section.comments article {
+    margin: 1em;
+}
+main > section.comments article header {
+    background: lightsteelblue;
+    padding: 1em;
+}
+main > section.comments article section {
+    padding: 1em;
+    background: lightgray;
+}
+main > section.comments article footer {
+    padding: 0.5em 1em;
+    background: lightsteelblue;
+}
+main > section.comments article footer ul {
+    list-style: none;
+    padding: 0;
+    text-align: right;
+}
+main > section.comments article footer ul li {
+    display: inline-block;
+}
+main > section.comments article footer ul li + li {
+    margin-left: 1em;
+}
+
+
+.alert {
+    display: block;
+    padding: 1em;
+    background: lightyellow;
+}
