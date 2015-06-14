@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Editar Comentário</title>
-    <link rel="stylesheet" href="/webcrowd/public/style/app.css"/>
-</head>
-<body>
-<main>
-    <header>
-        <h1>Editar Comentário</h1>
-    </header>
     <nav>
         <ul>
             <li>
@@ -21,20 +9,13 @@
         </ul>
     </nav>
     <section>
-        <form action="/webcrowd/comments/create" method="post">
-            <p>
-                <label>Nome:</label>
-                <input type="text" name="username" value="<?php echo $comment->username; ?>" required />
-            </p>
+        <form action="/webcrowd/comments/edit/<?php echo $comment->id; ?>" method="post">
             <p>
                 <label>Mensagem:</label>
                 <textarea name="message" required><?php echo $comment->message; ?></textarea>
             </p>
             <p>
-                <input type="submit" value="Comentar" />
+                <input type="submit" value="Alterar" />
             </p>
         </form>
     </section>
-</main>
-</body>
-</html>

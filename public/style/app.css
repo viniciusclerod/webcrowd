@@ -42,6 +42,9 @@ main > section > form > p > input, main > section > form > p > textarea {
 main > section > form > p > input[type=submit] {
     width: 100%;
 }
+main > section > form > p > input[type=submit]:hover {
+    background: lightslategray;
+}
 main > section > form > p > textarea {
     resize: vertical;
     min-height: 10em;
@@ -74,9 +77,55 @@ main > section.comments article footer ul li + li {
     margin-left: 1em;
 }
 
+main > footer {
+    clear: both;
+    background: lightsalmon;
+    padding: 1em;
+}
 
 .alert {
     display: block;
     padding: 1em;
     background: lightyellow;
+}
+
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+.col-25 {
+    display: inline-block;
+    float: left;
+    width: 25%;
+}
+.col-50 {
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+.col-75 {
+    display: inline-block;
+    float: left;
+    width: 75%;
+}
+.offset-25 {
+    margin-left: 25%;
+}
+.offset-50 {
+    margin-left: 50%;
+}
+.offset-75 {
+    margin-left: 75%;
 }

@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Comentário</title>
-    <link rel="stylesheet" href="/webcrowd/public/style/app.css"/>
-</head>
-<body>
-<main>
-    <header>
-        <h1>Comentário</h1>
-    </header>
     <nav>
         <ul>
             <li>
@@ -49,6 +37,3 @@
             </section>
         </article>
     </section>
-</main>
-</body>
-</html>

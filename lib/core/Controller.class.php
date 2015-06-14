@@ -9,6 +9,7 @@ class Controller {
         $this->controller = $controller;
         $this->action = $action;
         $this->load = new Loader();
+        session_start();
     }
 
     public function __destruct() {}
