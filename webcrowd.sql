@@ -26,6 +26,10 @@ CREATE TRIGGER `comments_before_update` BEFORE UPDATE ON `comments`
 $$
 DELIMITER ;
 
+-- AUTO_INCREMENT for table `comments`
+ALTER TABLE `comments`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+
 -- --------------------------------------------------------
 
 -- Table structure for table `users`
@@ -53,3 +57,7 @@ CREATE TRIGGER `users_before_update` BEFORE UPDATE ON `users`
  FOR EACH ROW SET NEW.updatedAt=NOW()
 $$
 DELIMITER ;
+
+-- AUTO_INCREMENT for table `users`
+ALTER TABLE `users`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;

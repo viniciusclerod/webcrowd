@@ -4,7 +4,7 @@ class CommentsController extends Controller {
 
     public function __construct($controller, $action) {
         parent::__construct($controller, $action);
-        if (!Auth::isLogged()) {
+        if (/*$action!='index'&&*/!Auth::isLogged()) {
             $this->load->redirect('/webcrowd/users/login', array(
                 'message' => 'Você não possui acesso, faça login.'
             ));

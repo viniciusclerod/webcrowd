@@ -17,7 +17,6 @@ class UsersController extends Controller {
                 Auth::create($user);
                 $this->load->redirect('/webcrowd/comments/index');
             } else {
-                Auth::destroy();
                 $this->load->redirect('/webcrowd/users/login', array(
                     'message' => 'Usuário ou senha incorretos.'
                 ));
@@ -39,14 +38,18 @@ class UsersController extends Controller {
     public function signup() {
         if ($_SERVER['REQUEST_METHOD']=='POST'){
             $user = new User('users');
-            $user->username = $_POST['username'];
-            $user->email = $_POST['email'];
-            $user->salt = Cypher::generateSalt($user->email);
-            $user->password = Cypher::hashedPassword($_POST['password'], $user->salt);
-            if ($user->create()) {
-                $message = 'Usuário cadastrado com sucesso. Faça login.';
+            if($user->find($_POST['email'],'email')){
+                $message = 'Esse email já foi cadastrado.';
             } else {
-                $message = 'Não foi possível cadastrar o usuário.';
+                $user->username = $_POST['username'];
+                $user->email = $_POST['email'];
+                $user->salt = Cypher::generateSalt($user->email);
+                $user->password = Cypher::hashedPassword($_POST['password'], $user->salt);
+                if ($user->create()) {
+                    $message = 'Usuário cadastrado com sucesso. Faça login.';
+                } else {
+                    $message = 'Não foi possível cadastrar o usuário.';
+                }
             }
             $this->load->redirect('/webcrowd/users/login', array(
                 'message' => $message

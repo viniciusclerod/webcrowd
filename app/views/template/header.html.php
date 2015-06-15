@@ -15,7 +15,7 @@
     <header>
 
         <section class="right">
-            <?php if(isset($_SESSION['logged'])): ?>
+            <?php if(Auth::isLogged()): ?>
                 <?php echo $_SESSION['user']->username; ?> |
                 <a href="/webcrowd/users/logout">Sair</a>
             <? endif; ?>
